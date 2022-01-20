@@ -41,10 +41,11 @@ for i = 1:6
     p92(i) = (0.9993^2)*(mgk(i)^2);
     Zp92(i)=p92(i)-1;
     
-    L0=21;
+    [L0,num]=ret_Lo(P_lam(i));
+    %L0=21;
     [xgk2(i),ygk2(i)] = FL_2_GK(P_fi(i),P_lam(i),L0);
 
-    [x2000p(i),y2000p(i)] = GK_2_2000(xgk2(i),ygk2(i),7);
+    [x2000p(i),y2000p(i)] = GK_2_2000(xgk2(i),ygk2(i),num);
 
     %[mgk_p2(i)] = ret_mgk(ygk(i),P_fi(i));
     [mgk_p2(i)] = ret_mgk2(P_lam(i),L0,P_fi(i));
@@ -58,5 +59,4 @@ end
 Pgk = pole(xgk(1),ygk(1),xgk(2),ygk(2),xgk(3),ygk(3),xgk(4),ygk(4));
 P92 = pole(x92p(1),y92p(1),x92p(2),y92p(2),x92p(3),y92p(3),x92p(4),y92p(4));
 P2000 = pole(x2000p(1),y2000p(1),x2000p(2),y2000p(2),x2000p(3),y2000p(3),x2000p(4),y2000p(4));
-
 
