@@ -31,7 +31,7 @@ while 1
     L = La_del+(1-C)*f*sin_alfa*(sigma+C*sin_sigma*(cos_2sigma_m+C*cos_sigma*(-1+2*cos_2sigma_m^2)));
     
     i=i+1;
-    if ( abs(L-L_old) < 0.000001/3600)
+    if ( abs(L-L_old) < deg2rad(0.000001/3600))
         break
     end
 end
