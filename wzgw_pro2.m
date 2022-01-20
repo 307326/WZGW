@@ -24,7 +24,7 @@ for h = 1:24
     Z1 = acosd(sind(phi1)*sind(dek)+cosd(phi1)*cosd(dek)*cosd(t1));
     zen1(h)= Z1;
     wys1(h)= 90 - Z1;
-    A1 = atand((-cosd(dek)*sind(t1))/(cosd(phi1)*sind(dek)-sind(phi1)*cosd(dek)*cosd(t1)))
+    A1 = atand((-cosd(dek)*sind(t1))/(cosd(phi1)*sind(dek)-sind(phi1)*cosd(dek)*cosd(t1)));
     
     A1 = ret_azymut(A1,phi1,dek,t1);
     az1(h) = A1;
@@ -67,19 +67,36 @@ end
 for j = 1:24
     i(j)=j;
 end
-figure;plot3(x3,y3,z3,'o');
-grid;
-figure;
-plot3(x2,y2,z2,'o');
-grid;
 figure;plot3(x1,y1,z1,'o');
 grid;
+title('Pozorny ruch w Turku');
+figure;plot3(x2,y2,z2,'o');
+grid;
+title('Pozorny ruch w Stanley');
+figure;plot3(x3,y3,z3,'o');
+grid;
+title('Pozorny ruch w Libreville');
 xlabel('x');
 ylabel('y');
 zlabel('z');
 
 figure;plot(wys1,'o');
+title('wysokosc od czasu w Turku');
+grid;
 figure;plot(wys2,'o');
+title('wysokosc od czasu w Stanley');
+grid;
 figure;plot(wys3,'o');
+title('wysokosc od czasu w Libreville');
+grid;
 
-%skyplot(az1,wys1)
+figure;plot(az1,'o');
+title('azymut od czasu w Turku');
+grid;
+figure;plot(az2,'o');
+title('azymut od czasu w Stanley');
+grid;
+figure;plot(az3,'o');
+title('azymut od czasu w Libreville');
+grid;
+
